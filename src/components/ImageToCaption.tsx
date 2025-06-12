@@ -211,7 +211,7 @@ const ImageToCaption: React.FC = () => {
           </div>
         )}
 
-        {/* Instructions */}
+        
         {!showPreview && (
           <div className="bg-gray-50 rounded-lg p-4">
             <h3 className="font-medium text-gray-800 mb-2">How it works:</h3>
