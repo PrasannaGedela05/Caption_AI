@@ -126,8 +126,7 @@ const ImageToCaption: React.FC = () => {
                 alt="Preview"
                 className="w-full max-h-64 object-contain rounded-lg border border-gray-200 bg-white"
               />
-            </div>
-            
+            </div>           
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
               <p className="text-blue-800 text-sm">
                 <strong>Review your image:</strong> The AI will analyze this image and generate a descriptive caption based on what it sees, including text content if present.
@@ -135,8 +134,6 @@ const ImageToCaption: React.FC = () => {
             </div>
           </div>
         )}
-
-        {/* Generate Button */}
         <button
           onClick={handleGenerate}
           disabled={loadingState.isLoading || (!imageFile && !imageUrl)}
