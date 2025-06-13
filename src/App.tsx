@@ -1,20 +1,16 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Header from './components/Header';
 import ImageToCaption from './components/ImageToCaption';
 import TextToImage from './components/TextToImage';
 import ApiKeySetup from './components/ApiKeySetup';
 
 function App() {
-  // Check if API key is configured
   const isApiConfigured = import.meta.env.VITE_OPENROUTER_API_KEY && 
     import.meta.env.VITE_OPENROUTER_API_KEY !== 'your-openrouter-api-key-here';
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       <Header />
-      
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Hero Section */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             AI-Powered Image Tools
@@ -24,17 +20,11 @@ function App() {
             <i>AI can make mistakes while generating</i>
           </p>
         </div>
-
-        {/* API Key Setup Notice */}
         {!isApiConfigured && <ApiKeySetup />}
-
-        {/* Main Tools Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           <ImageToCaption />
           <TextToImage />
         </div>
-
-        {/* Features Section */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
             Why Choose Captional?
@@ -69,8 +59,6 @@ function App() {
             </div>
           </div>
         </div>
-
-        {/* API Information Section */}
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-8 text-white mb-8">
           <div className="text-center">
             <h3 className="text-2xl font-semibold mb-4">Powered by OpenRouter AI</h3>
@@ -80,8 +68,6 @@ function App() {
             </p>
           </div>
         </div>
-
-        {/* Footer */}
         <footer className="text-center py-8">
           <p className="text-gray-500 text-sm">
             Built with ❤️ for creators everywhere. 
