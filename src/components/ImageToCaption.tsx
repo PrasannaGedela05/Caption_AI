@@ -39,7 +39,6 @@ const ImageToCaption: React.FC = () => {
       return;
     }
     setLoadingState({ isLoading: true, error: null });
-    
     try {
       const result = await generateCaption(imageFile || imageUrl);
       setCaption(result);
@@ -76,7 +75,6 @@ const ImageToCaption: React.FC = () => {
           <p className="text-gray-600 text-sm">Upload an image to generate AI captions</p>
         </div>
       </div>
-
       <div className="space-y-4">
         <div>
           <input
@@ -95,8 +93,6 @@ const ImageToCaption: React.FC = () => {
             <p className="text-sm text-gray-400">PNG, JPG, GIF up to 10MB</p>
           </button>
         </div>
-
-        {/* URL Input */}
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Link className="w-5 h-5 text-gray-400" />
@@ -109,8 +105,6 @@ const ImageToCaption: React.FC = () => {
             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
           />
         </div>
-
-        {/* Image Preview Section */}
         {showPreview && previewUrl && (
           <div className="bg-gray-50 rounded-lg p-4 space-y-4">
             <div className="flex items-center justify-between">
@@ -160,8 +154,6 @@ const ImageToCaption: React.FC = () => {
             </>
           )}
         </button>
-
-        {/* Error Display */}
         {loadingState.error && (
           <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start">
             <AlertCircle className="w-5 h-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
@@ -175,8 +167,6 @@ const ImageToCaption: React.FC = () => {
             </div>
           </div>
         )}
-
-        {/* Caption Result */}
         {caption && (
           <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4 space-y-3">
             <div className="flex items-center">
