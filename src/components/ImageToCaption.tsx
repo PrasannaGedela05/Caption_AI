@@ -12,7 +12,6 @@ const ImageToCaption: React.FC = () => {
   const [copied, setCopied] = useState<boolean>(false);
   const [showPreview, setShowPreview] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -24,7 +23,6 @@ const ImageToCaption: React.FC = () => {
       setShowPreview(true);
     }
   };
-
   const handleUrlInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const url = event.target.value;
     setImageUrl(url);
@@ -35,13 +33,11 @@ const ImageToCaption: React.FC = () => {
       setShowPreview(true);
     }
   };
-
   const handleGenerate = async () => {
     if (!imageFile && !imageUrl) {
       setLoadingState({ isLoading: false, error: 'Please upload an image or provide a URL' });
       return;
     }
-
     setLoadingState({ isLoading: true, error: null });
     
     try {
@@ -52,7 +48,6 @@ const ImageToCaption: React.FC = () => {
       setLoadingState({ isLoading: false, error: 'Failed to generate caption. Please check your API key configuration.' });
     }
   };
-
   const handleCopy = async () => {
     if (caption) {
       await navigator.clipboard.writeText(caption);
@@ -60,7 +55,6 @@ const ImageToCaption: React.FC = () => {
       setTimeout(() => setCopied(false), 2000);
     }
   };
-
   const clearImage = () => {
     setImageFile(null);
     setImageUrl('');
@@ -71,7 +65,6 @@ const ImageToCaption: React.FC = () => {
       fileInputRef.current.value = '';
     }
   };
-
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 h-full">
       <div className="flex items-center mb-6">
@@ -85,7 +78,6 @@ const ImageToCaption: React.FC = () => {
       </div>
 
       <div className="space-y-4">
-        {/* File Upload */}
         <div>
           <input
             type="file"
@@ -210,8 +202,6 @@ const ImageToCaption: React.FC = () => {
             </button>
           </div>
         )}
-
-        
         {!showPreview && (
           <div className="bg-gray-50 rounded-lg p-4">
             <h3 className="font-medium text-gray-800 mb-2">How it works:</h3>
